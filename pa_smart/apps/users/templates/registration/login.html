@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- css connecting -->
+    <link rel="stylesheet" href="{% static "users/css/wqtt-admin.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "users/vendor/bootstrap/css/bootstrap.min.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "users/vendor/fontawesome-free/css/all.min.css" %}" type="text/css">
+</head>
+<body class="bg-gradient-login">
+  
+    <!-- Login Content -->
+    <div class="container-login">
+      <div class="row justify-content-center">
+        <div class="col-xl-6 col-lg-12 col-md-9 col-login">
+          <div class="card shadow-sm my-5">
+            <div class="card-body p-0">
+              <div class="row">
+                <div class="col-lg-12">
+                <div class="login-form">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">domen</h1>
+                  </div>
+                  <form method="post" class="user">
+                    {% csrf_token %}
+                    <div id="div_id_username" class="form-group"> <label for="id_username" class=" requiredField">
+                                  Адрес электронной почты<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="254" class="textinput textInput form-control" required="" id="id_username"> </div> </div> <div id="div_id_password" class="form-group"> <label for="id_password" class=" requiredField">
+                                  Пароль<span class="asteriskField">*</span> </label> <div class=""> <input type="password" name="password" autocomplete="current-password" class="textinput textInput form-control" required="" id="id_password"> </div> </div>
+                      <div class="form-group">
+                        <a href="/account/password-reset/" class="tx-info tx-12 d-block mg-t-10">Забыли пароль?</a>
+                      </div>
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Войти</button>
+                      </div>
+                    {{form.errors}}
+                    </form>
+                    <hr>
+                    <div class="text-center">
+                      <div class="mg-t-60 tx-center">Нет учетной записи? <a href="/account/register/" class="tx-info">Регистрация</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Login Content -->
+    <script src="{% static "users/vendor/jquery/jquery.min.js" %}"></script>
+    <script src="{% static "users/vendor/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+    <script src="{% static "users/vendor/jquery-easing/jquery.easing.min.js" %}"></script>
+    <script src="{% static "users/js/wqtt-admin.js" %}"></script>
+  
+    
+  </body></html>
