@@ -1,0 +1,224 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+  <link rel="manifest" href="/static/site.webmanifest">
+  <link rel="mask-icon" href="/static/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>domen.ru - Яндекс.Алиса</title>
+
+  <script type="text/javascript" src="{% static "/users/vendor/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+  <script type="text/javascript" src="{% static "/users/vendor/jquery-easing/jquery.easing.min.js" %}"></script>
+  <script type="text/javascript" src="{% static "/users/vendor/jquery/jquery.min.js" %}"></script>
+  <script type="text/javascript" src="{% static "/users/js/jquery.simply-toast.js" %}"></script>
+  <script type="text/javascript" src="{% static "/users/vendor/paho-mqtt/paho-mqtt.js" %}"></script>
+  <script type="text/javascript" src="{% static "/users/js/jquery.min.js" %}"></script>
+
+  <link href="{% static "/users/vendor/fontawesome-free/css/all.min.css" %}" rel="stylesheet" type="text/css">
+  <link href="{% static "/users/vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet" type="text/css">
+  <link href="{% static "/users/css/wqtt-admin.css" %}" rel="stylesheet">
+  
+  <link rel="/stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+  
+
+<body id="page-top">
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <!-- Sidebar -->
+  <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+      
+      <div class="sidebar-brand-text">domen.ru</div>
+    </a>
+    
+    <hr class="sidebar-divider">
+    <div class="sidebar-heading">
+      Умный дом
+    </div>
+    <li class="nav-item menu-item">
+      <a class="nav-link" href="/">
+        <i class="fas fa-fw fa-window-maximize"></i>
+        <span>Устройства</span>
+      </a>
+    </li>
+    <li class="nav-item menu-item">
+      <a class="nav-link" href="/alice/">
+        <i class="fas fa-fw fa-microphone"></i>
+        <span>Яндекс.Алиса</span>
+      </a>
+    </li>
+    <li class="nav-item menu-item">
+      <a class="nav-link" href="/support/">
+        <i class="fas fa-fw fa-life-ring"></i>
+        <span>Поддержка</span>
+      </a>
+    </li>
+    <li class="nav-item menu-item">
+      <a class="nav-link" target="_blank" href="/doc/">
+        <i class="fas fa-book"> </i>
+        <span>Документация</span>
+      </a>
+    </li>
+    <hr class="sidebar-divider">
+    
+    <div class="version">Версия 3.9</div>
+  </ul>
+
+    <div id="content-wrapper" class="d-flex flex-column">
+      <div id="content">
+        <!-- TopBar -->
+        <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+    <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
+        <i class="fa fa-bars"></i>
+    </button>
+    <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <img class="img-profile rounded-circle" src="/static/img/user.jpg" style="max-width: 60px">
+            <span class="ml-2 d-none d-lg-inline text-white small">{{user.username}}</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+            <a class="dropdown-item" href="/account/password-change/">
+            <i class="fas fa-unlock-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+            Сменить пароль
+            </a>
+            <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#accauntDeleteModal">
+            <i class="fas fa-trash fa-sm fa-fw mr-2 text-gray-400"></i>
+            Удалить аккаунт
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" data-target="#logoutModal">
+            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+            Выйти
+            </a>
+        </div>
+        </li>
+    </ul>
+</nav>
+
+        <!-- Container Fluid-->
+        <div class="container-fluid" id="container-wrapper">
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Яндекс.Алиса</h1>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><i class="fa fa-home" aria-hidden="true"></i></li>
+              <li class="breadcrumb-item active" aria-current="page">Яндекс.Алиса</li>
+            </ol>
+          </div>
+
+        
+<div class="row">
+    <div class="col">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Аккаунты</h5>
+                <p>Количество связанных аккаунтов Яндекс: 0</p>
+                <p>
+                    <a class="btn btn-outline-danger btn-sm" href="/alice_unlink/" onClick="return window.confirm('Отвязать все аккаунты?');" role="button">
+                        <i class="fas fa-unlink"></i> Отвязать все аккаунты
+                    </a>
+                    <a class="btn btn-primary btn-sm" href="https://yandex.ru/quasar/iot/linking/4d7cd091-38f6-4c8c-b0ce-15beef51dea9" role="button" alt="Связать аккаунт и обновить список устройств Алисы">
+                        <i class="fas fa-link"></i> Связать аккаунт и/или обновить список устройств
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+        <br><br>
+          <!-- Modal Logout -->
+          <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exModalLabelLogout"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exModalLabelLogout">ПОДТВЕРЖДЕНИЕ ДЕЙСТВИЙ</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Вы уверены, что хотите выйти из системы?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Отмена</button>
+                  <a href="/account/logout/" class="btn btn-primary">Выйти</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal Logout End-->
+          <!-- Modal AccauntDelete -->
+          <div class="modal fade" id="accauntDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exAccauntDeleteModal"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exAccauntDeleteModal">ПОДТВЕРЖДЕНИЕ ДЕЙСТВИЙ</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <h3>Удаление аккаунта</h3>
+                  <p>Вы действительно хотите удалить свой аккаунт?</p>
+                  <p>Действие не обратимо.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Отмена</button>
+                  <a href="/account_delete/" class="btn btn-danger">Удалить</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Modal AccauntDelete End-->
+        </div>
+        <!---Container Fluid-->
+      </div>
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>
+              <a href="https://schonesfeuer.ru">schonesfeuer.ru</a> &copy; <script> document.write(new Date().getFullYear()); </script>
+            </span>
+          </div>
+        </div>
+      </footer>
+      <!-- Footer -->
+    </div>
+  </div>
+
+  <!-- Scroll to top -->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <script src="/static/vendor/jquery/jquery.min.js"></script>
+  <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="/static/js/jquery.simply-toast.js"></script>
+  <script src="/static/js/wqtt-admin.js?v=2"></script>
+  
+
+</body>
+
+</html>

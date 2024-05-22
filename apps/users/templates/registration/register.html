@@ -1,0 +1,104 @@
+{% load static %}
+
+<html lang="ru">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+  <link rel="manifest" href="/static/site.webmanifest">
+  <link rel="mask-icon" href="/static/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Регистрация - domen</title>
+
+  <link href="{% static "/users/vendor/fontawesome-free/css/all.min.css" %}" rel="stylesheet" type="text/css">
+  <link href="{% static "/users/vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet" type="text/css">
+  <link href="{% static "/users/css/wqtt-admin.css" %}" rel="stylesheet">
+
+<body class="bg-gradient-login">
+
+  <!-- Login Content -->
+  <div class="container-login">
+    <div class="row justify-content-center">
+      <div class="col-xl-6 col-lg-12 col-md-9 col-login">
+        <div class="card shadow-sm my-5">
+          <div class="card-body p-0">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="login-form" method="post">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">domen</h1>
+                  </div>
+                  <form class="user" method="post">
+                    {%csrf_token%}
+                    <div id="div_id_username" class="form-group"> <label for="id_username" class=" requiredField">
+                      Имя<span class="asteriskField">*</span> </label>
+                    <div class=""> <input type="username" name="username" maxlength="52" autofocus=""
+                        class="textinput textInput form-control" required="" id="id_username"> </div>
+                    </div>
+
+                    <div id="div_id_email" class="form-group"> <label for="id_email" class=" requiredField">
+                        Адрес электронной почты<span class="asteriskField">*</span> </label>
+                      <div class=""> <input type="email" name="email" maxlength="254" autofocus=""
+                          class="emailinput form-control" required="" id="id_email"> </div>
+                    </div>
+                    <div id="div_id_password1" class="form-group"> <label for="id_password1" class=" requiredField">
+                        Пароль<span class="asteriskField">*</span> </label>
+                      <div class=""> <input type="password" name="password1" autocomplete="new-password"
+                          class="textinput textInput form-control" required="" id="id_password1"> <small
+                          id="hint_id_password1" class="form-text text-muted">
+                          <ul>
+                            <li>Ваш пароль должен содержать как минимум 8 символов.</li>
+                            <li>Такой пароль часто используется.</li>
+                            <li>Пароль не может состоять только из цифр.</li>
+                          </ul>
+                        </small> </div>
+                    </div>
+                    <div id="div_id_password2" class="form-group"> <label for="id_password2" class=" requiredField">
+                        Подтверждение пароля<span class="asteriskField">*</span> </label>
+                      <div class=""> <input type="password" name="password2" autocomplete="new-password"
+                          class="textinput textInput form-control" required="" id="id_password2"> <small
+                          id="hint_id_password2" class="form-text text-muted">Для подтверждения введите, пожалуйста,
+                          пароль ещё раз.</small> </div>
+                    </div>
+
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-primary btn-block">Зарегистрироваться</button>
+                      <small class="form-text ">Нажимая «Зарегестрироваться», Вы соглашаетесь с <a
+                          href="#">пользовательским соглашением</a> и <a href="#">политикой
+                          конфиденциальности</a>.</small>
+                    </div>
+                    {{form.errors}}
+                  </form>
+                  <hr>
+                  <div class="text-center">
+                    <div class="mg-t-60 tx-center">У вас уже есть учетная запись? <a href="/accounts/login/"
+                        class="tx-info">Войти</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Login Content -->
+  <script src="/static/vendor/jquery/jquery.min.js"></script>
+  <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="/static/js/wqtt-admin.js"></script>
+
+
+</body>
+
+</html>
